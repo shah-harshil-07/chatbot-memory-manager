@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "memory-agent"
+version = "0.1.0"
+description = "Conversational agent with production-grade long-term memory (OpenAI + Qdrant)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.50",
+    "qdrant-client>=1.12",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+
+[project.scripts]
+memory-agent = "memory_agent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/memory_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+filterwarnings = ["ignore:Payload indexes have no effect:UserWarning"]
