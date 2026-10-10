@@ -1,4 +1,4 @@
-# Memory Agent
+# Chatbot Memory Manager
 
 A conversational agent with **long-term memory**, built on **OpenAI** (chat + embeddings) and **Qdrant** (vector store).
 It is the production version of the tiny SQLite demo: same four-step loop, real components.
